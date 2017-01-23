@@ -1,3 +1,5 @@
+require 'date'
+
 class Bank
 
   attr_reader :balance, :data
@@ -9,6 +11,7 @@ class Bank
 
   def deposit_money(amount)
     @balance += amount
+    @data << [Date.today, nil, amount, @balance]
   end
 
   def withdraw_money(amount)

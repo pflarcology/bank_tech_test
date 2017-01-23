@@ -1,4 +1,5 @@
 require 'bank'
+require 'date'
 
 describe Bank do
 
@@ -41,5 +42,11 @@ describe Bank do
   it 'data initialises as an array' do
     expect(subject.data).to eq Array.new
   end
+
+  it 'data stores information for one deposit' do
+    subject.deposit_money(1)
+    expect(subject.data).to eq [[Date.today, nil, 1, 1]]
+  end
+
 
 end
