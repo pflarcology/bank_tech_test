@@ -38,4 +38,8 @@ describe Bank do
     expect(subject).to respond_to :data
   end
 
+  it 'data initialises as an array' do
+    expect(subject.data).to eq Array.new
+  end
+
 end

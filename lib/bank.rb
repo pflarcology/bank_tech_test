@@ -4,7 +4,7 @@ class Bank
 
   def initialize
     @balance = 0
-    @data
+    @data = []
   end
 
   def deposit_money(amount)
