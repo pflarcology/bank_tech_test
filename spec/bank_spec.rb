@@ -77,6 +77,14 @@ describe Bank do
     expect(subject.withdraw_money('test')).to eq 'Cannot withdraw money: please enter a valid number'
   end
 
+  it 'returns an error if amount being deposited is not greater than zero' do
+    expect(subject.deposit_money(0)).to eq 'Cannot deposit money: amount needs to be greater than zero'
+  end
+
+  it 'returns an error if amount being withdrawn is not greater than zero' do
+    expect(subject.withdraw_money(0)).to eq 'Cannot withdraw money: amount needs to be greater than zero'
+  end
+
 
 
 end

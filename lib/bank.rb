@@ -11,12 +11,14 @@ class Bank
 
   def deposit_money(amount)
     return 'Cannot deposit money: please enter a valid number' if !valid_number?(amount)
+    return 'Cannot deposit money: amount needs to be greater than zero' if minimum(amount)
     @balance += amount
     @data << [Date.today.to_s, amount.to_s, '', @balance.to_s]
   end
 
   def withdraw_money(amount)
     return 'Cannot withdraw money: please enter a valid number' if !valid_number?(amount)
+    return 'Cannot withdraw money: amount needs to be greater than zero' if minimum(amount)
     @balance -= amount
     @data << [Date.today.to_s, '' , amount.to_s, @balance.to_s]
   end
@@ -36,6 +38,10 @@ class Bank
 
   def valid_number?(amount)
     amount.is_a? Numeric
+  end
+
+  def minimum(amount)
+    amount <= 0
   end
 
 end
