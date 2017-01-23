@@ -35,6 +35,11 @@ describe Bank do
     expect(subject.bank_statement).to eq ('date || credit || debit || balance')
   end
 
+  it 'bank statement show information for one deposit' do
+    subject.deposit_money(1)
+    expect(subject.bank_statement).to eq ("date || credit || debit || balance \n #{Date.today} || 1 ||  || 1")
+  end
+
   it 'responds to data' do
     expect(subject).to respond_to :data
   end
@@ -45,13 +50,15 @@ describe Bank do
 
   it 'data stores information for one deposit' do
     subject.deposit_money(1)
-    expect(subject.data).to eq [[Date.today, 1, nil, 1]]
+    expect(subject.data).to eq [[Date.today.to_s, '1', '', '1']]
   end
 
   it 'data stores information for one withdrawal' do
     subject.withdraw_money(1)
-    expect(subject.data).to eq [[Date.today, nil, 1, -1]]
+    expect(subject.data).to eq [[Date.today.to_s, '', '1', '-1']]
   end
+
+
 
 
 end

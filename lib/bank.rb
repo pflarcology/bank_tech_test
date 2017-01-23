@@ -11,16 +11,20 @@ class Bank
 
   def deposit_money(amount)
     @balance += amount
-    @data << [Date.today, amount, nil, @balance]
+    @data << [Date.today.to_s, amount.to_s, '', @balance.to_s]
   end
 
   def withdraw_money(amount)
     @balance -= amount
-    @data << [Date.today, nil, amount, @balance]
+    @data << [Date.today.to_s, '' , amount.to_s, @balance.to_s]
   end
 
   def bank_statement
-    'date || credit || debit || balance'
+    string = 'date || credit || debit || balance'
+    @data.each do |date, credit, debit, balance|
+      string += " \n " + date + ' || ' + credit + ' || ' + debit + ' || ' + balance
+    end
+    string
   end
 
 
