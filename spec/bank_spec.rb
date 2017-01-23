@@ -45,7 +45,12 @@ describe Bank do
 
   it 'data stores information for one deposit' do
     subject.deposit_money(1)
-    expect(subject.data).to eq [[Date.today, nil, 1, 1]]
+    expect(subject.data).to eq [[Date.today, 1, nil, 1]]
+  end
+
+  it 'data stores information for one withdrawal' do
+    subject.withdraw_money(1)
+    expect(subject.data).to eq [[Date.today, nil, 1, -1]]
   end
 
 
