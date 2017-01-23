@@ -6,8 +6,8 @@ class Bank
     @balance = 0
   end
 
-  def deposit_money
-    @balance += 1
+  def deposit_money(amount)
+    @balance += amount
   end
 
 end

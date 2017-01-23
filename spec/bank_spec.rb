@@ -14,8 +14,8 @@ describe Bank do
     expect(subject).to respond_to :deposit_money
   end
 
-  it 'adds 1 when the method deposit money is run' do
-    expect{subject.deposit_money}.to change{subject.balance}.by(1)
+  it 'can choose the amount entered when depositing money' do
+    expect{subject.deposit_money(1)}.to change{subject.balance}.by(1)
   end
 
 end
