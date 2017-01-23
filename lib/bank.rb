@@ -7,6 +7,7 @@ class Bank
   end
 
   def deposit_money
+    @balance += 1
   end
 
 end
