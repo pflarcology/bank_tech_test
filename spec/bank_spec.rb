@@ -34,4 +34,8 @@ describe Bank do
     expect(subject.bank_statement).to eq ('date || credit || debit || balance')
   end
 
+  it 'responds to data' do
+    expect(subject).to respond_to :data
+  end
+
 end
