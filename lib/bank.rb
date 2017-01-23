@@ -10,6 +10,7 @@ class Bank
   end
 
   def deposit_money(amount)
+    return 'Cannot deposit money: please a valid number' if !valid_number?(amount)
     @balance += amount
     @data << [Date.today.to_s, amount.to_s, '', @balance.to_s]
   end
@@ -30,6 +31,10 @@ class Bank
     @data.reverse.each do |date, credit, debit, balance|
       puts date + ' || ' + credit.ljust(7) + ' || ' + debit.ljust(7) + ' || ' + balance
     end
+  end
+
+  def valid_number?(amount)
+    amount.is_a? Numeric
   end
 
 end

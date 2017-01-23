@@ -69,6 +69,10 @@ describe Bank do
     expect(subject.data).to eq [[Date.today.to_s, '', '1', '-1']]
   end
 
+  it 'returns error if it is not a valid number' do
+    expect(subject.deposit_money('test')).to eq 'Cannot deposit money: please a valid number'
+  end
+
 
 
 
