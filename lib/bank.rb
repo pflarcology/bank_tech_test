@@ -20,12 +20,16 @@ class Bank
   end
 
   def bank_statement
-    string = 'date || credit || debit || balance'
-    @data.reverse.each do |date, credit, debit, balance|
-      string += " \n " + date + ' || ' + credit + ' || ' + debit + ' || ' + balance
-    end
-    string
+    puts "#{'date'.ljust(10)} || #{'credit'.ljust(7)} || #{'debit'.ljust(7)} || balance"
+    print_method
   end
 
+  private
+
+  def print_method
+    @data.reverse.each do |date, credit, debit, balance|
+      puts date + ' || ' + credit.ljust(7) + ' || ' + debit.ljust(7) + ' || ' + balance
+    end
+  end
 
 end
