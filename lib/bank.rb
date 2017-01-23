@@ -21,7 +21,7 @@ class Bank
 
   def bank_statement
     string = 'date || credit || debit || balance'
-    @data.each do |date, credit, debit, balance|
+    @data.reverse.each do |date, credit, debit, balance|
       string += " \n " + date + ' || ' + credit + ' || ' + debit + ' || ' + balance
     end
     string

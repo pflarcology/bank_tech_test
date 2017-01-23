@@ -40,6 +40,17 @@ describe Bank do
     expect(subject.bank_statement).to eq ("date || credit || debit || balance \n #{Date.today} || 1 ||  || 1")
   end
 
+  it 'bank statement show information for one deposit' do
+    subject.withdraw_money(1)
+    expect(subject.bank_statement).to eq ("date || credit || debit || balance \n #{Date.today} ||  || 1 || -1")
+  end
+
+  it 'bank statement stores information in reverse order' do
+    subject.deposit_money(1)
+    subject.withdraw_money(1)
+    expect(subject.bank_statement).to eq ("date || credit || debit || balance \n #{Date.today} ||  || 1 || 0 \n #{Date.today} || 1 ||  || 1")
+  end 
+
   it 'responds to data' do
     expect(subject).to respond_to :data
   end
