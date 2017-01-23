@@ -22,4 +22,16 @@ describe Bank do
     expect(subject).to respond_to :withdraw_money
   end
 
+  it 'can withdraw money from the account' do
+    expect{subject.withdraw_money(1)}.to change{subject.balance}.by(-1)
+  end
+
+  it 'responds to bank statement' do
+    expect(subject).to respond_to :bank_statement
+  end
+
+  it 'bank statement shows categories' do
+    expect(subject.bank_statement).to eq ('date || credit || debit || balance')
+  end
+
 end
