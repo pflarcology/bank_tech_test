@@ -10,12 +10,13 @@ class Bank
   end
 
   def deposit_money(amount)
-    return 'Cannot deposit money: please a valid number' if !valid_number?(amount)
+    return 'Cannot deposit money: please enter a valid number' if !valid_number?(amount)
     @balance += amount
     @data << [Date.today.to_s, amount.to_s, '', @balance.to_s]
   end
 
   def withdraw_money(amount)
+    return 'Cannot withdraw money: please enter a valid number' if !valid_number?(amount)
     @balance -= amount
     @data << [Date.today.to_s, '' , amount.to_s, @balance.to_s]
   end
