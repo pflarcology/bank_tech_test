@@ -18,4 +18,8 @@ describe Bank do
     expect{subject.deposit_money(1)}.to change{subject.balance}.by(1)
   end
 
+  it 'responds to the method withdraw money' do
+    expect(subject).to respond_to :withdraw_money
+  end
+
 end
